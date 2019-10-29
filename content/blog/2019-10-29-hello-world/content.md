@@ -8,4 +8,4 @@ title = "Hello World!"
   active = true
 +++
 
-This is the first blog post of the Okkur Labs.
+This is the first blog post of Okkur Labs.
