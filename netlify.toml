@@ -1,20 +1,20 @@
 [build]
   base = "exampleSite"
   publish = "public"
-  command = "hugo --config config.toml -d ../public --minify"
+  command = "hugo -b $DEPLOY_PRIME_URL --minify"
 
 [context.production.environment]
   HUGO_VERSION = "0.58.3"
   HUGO_ENV = "production"
 
 [context.deploy-preview]
-  command = "hugo --config config.toml -d ../public --minify"
+  command = "hugo -b $DEPLOY_PRIME_URL --minify"
 
 [context.deploy-preview.environment]
   HUGO_VERSION = "0.58.3"
 
 [context.branch-deploy]
-  command = "hugo --config config.toml -d ../public --minify"
+  command = "hugo -b $DEPLOY_PRIME_URL --minify"
 
 [context.branch-deploy.environment]
   HUGO_VERSION = "0.58.3"
