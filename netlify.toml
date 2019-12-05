@@ -1,5 +1,4 @@
 [build]
-  base = "exampleSite"
   publish = "public"
   command = "hugo -b $DEPLOY_PRIME_URL --minify"
 
