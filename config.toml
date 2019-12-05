@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "/"
+baseurl = "https://blog.okkur.org"
 languageCode = "en-us"
 title = "Okkur - Blog"
 theme = "syna"
@@ -109,6 +109,6 @@ lastmod = ["lastmod", ":git", "date"]
   weight = 50
 
 [[menu.copyright_footer]]
-  url = "https://about.okkur.org/"
-  name = "About Us"
+  url = "https://about.okkur.org/imprint"
+  name = "Imprint"
   weight = 10
