@@ -112,3 +112,8 @@ lastmod = ["lastmod", ":git", "date"]
   url = "https://about.okkur.org/imprint"
   name = "Imprint"
   weight = 10
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
