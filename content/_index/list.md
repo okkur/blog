@@ -1,6 +1,7 @@
 +++
 fragment = "list"
 weight = 100
-section = "blog"
+section = "articles"
 display_date = true
+images = false
 +++
