@@ -47,12 +47,12 @@ DefaultContentLanguage = "en"
 [[menu.main]]
   url = "https://about.okkur.org/syna/"
   name = "Syna"
-  weight = 30
+  weight = 20
 
 [[menu.main]]
   url = "https://about.okkur.org/#txtdirect"
   name = "TXTDirect"
-  weight = 20
+  weight = 30
 
 [[menu.main]]
   url = "https://about.okkur.org/#resumic"
