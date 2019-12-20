@@ -1,17 +1,17 @@
 +++
 fragment = "nav"
-#disabled = true
-date = "2018-05-17"
-weight = 0
+date = "2019-12-05"
+weight = 1
 background = "dark"
+search = true
+sticky = true
 
 [repo_button]
-  url = "https://github.com/okkur/syna"
-  text = "Star" # default: "Star"
-  icon = "fab fa-github" # defaults: "fab fa-github"
+  url = "https://github.com/okkur"
+  text = "Github"
+  icon = "fab fa-github"
 
-# Branding options
 [asset]
-  image = "logo.svg"
-  text = "Syna"
+  image = "logo-white.svg"
+  text = "Okkur Labs"
 +++
