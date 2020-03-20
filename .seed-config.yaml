@@ -1,0 +1,48 @@
+project:
+  name: "Okkur Labs Blog"
+  state: "stable"
+  image: "https://raw.githubusercontent.com/okkur/blog/master/static/images/logo.svg?sanitize=true"
+  website: "https://blog.okkur.org"
+  oneLiner: "Sustainable Open Source"
+  description: |
+    Okkur Labs blog repository for the static blog hosted at https://blog.okkur.org.  
+    Built with [Hugo](https://gohugo.io) and [Syna](https://syna.okkur.org).
+  version: "v0.1.0"
+  mainLicense: "CCByNcSa"
+
+vision:
+  type: "community"
+  overview: |
+    Blog to showcase Okkur Labs projects and ideas.
+contributionLinks:
+  issueTemplate: "/.github/ISSUE_TEMPLATE.md"
+  starterIssues: "https://github.com/okkur/blog/labels/starter%20issue"
+
+emails:
+  security: "security@okkur.org"
+  coc: "coc@okkur.org"
+
+copyright:
+  year: "2019"
+
+cla:
+  copyrightHolder: "nzt.ventures GmbH"
+  mail: "legal@nzt.ventures"
+
+maintainers:
+  - name: "Michael Grosser"
+    nick: "stp-ip"
+
+repo:
+  link: "https://git.okkur.org/blog"
+  type: "Github"
+
+badges:
+  - image: "https://img.shields.io/badge/state-stable-green.svg"
+    alt: "state"
+  - image: "https://img.shields.io/github/license/okkur/blog.svg"
+    link: "LICENSE"
+    alt: "license"
+
+reposeed:
+  configVersion: "v1"

@@ -1,12 +1,16 @@
 +++
 fragment = "content"
-weight = 100
+date = "2019-12-05"
+weight = 10
 
 title = "Create a blog using Hugo and Syna"
 title_align = "left"
 
-[sidebar]
-  active = true
+display_date = true
+
+[asset]
+  image = "typewriter.jpg"
+  text = "Typewriter"
 +++
 
 Syna is a theme for Hugo static website generator. While most themes have predefined layouts for each page and configuration is limited, Syna allows you to create and modify the layout of each page with building blocks we call fragments. There are tons of fragments already built in and you can create your own fragments using the structure provided by Syna. We will discuss this is another article.
