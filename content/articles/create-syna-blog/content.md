@@ -13,40 +13,45 @@ display_date = true
   text = "Typewriter"
 +++
 
-Syna is a theme for Hugo static website generator. While most themes have predefined layouts for each page and configuration is limited, Syna allows you to create and modify the layout of each page with building blocks we call fragments. There are tons of fragments already built in and you can create your own fragments using the structure provided by Syna. We will discuss this is another article.
+Syna is a theme for the Hugo static website generator. While most themes have a limited set of configurations and predefined layouts for each individual page, Syna allows you huge flexibility by spliting each page up into building blocks we call fragments. There are tons of fragments already built in and you can create your own fragment using Syna as a framework.
 
-Syna can be used to create company websites, pages to introduce products, display charts, blogs and so much more. In this tutorial we're gonna discuss the creation of a blog.
+Syna can be used to create company websites, introduce products, display charts, blogs and so much more.
+In this tutorial we're gonna discuss the creation of a blog.
 
-You can create the base structure for a Hugo website using the Getting Started guide. You can also clone the syna-start repository (you need to have already installed [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Go](https://golang.org/doc/install/source) and [Hugo](https://gohugo.io/getting-started/installing/)):
+You can create the base structure for a Hugo website by cloning our starter repository. Prerequisites you need installed are [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Go](https://golang.org/doc/install/source) and [Hugo](https://gohugo.io/getting-started/installing/).
 
+Step by step:  
 ```bash
-git clone https://git.okkur.org/syna-start syna-blog
-cd syna-blog
-git submodule init
-git submodule update
+git clone --recursive https://git.okkur.org/syna-start my-blog
+cd my-blog
 hugo server -D
 ```
 
-Now you can open [http://localhost:1313](http://localhost:1313) and check out the sample website we just cloned. Take your time and check out the folder structure and run the server to browse the website. There are two pages in the repository, index and about. Each page has some fragments already displayed in them. You'll notice some fragments are the same. These fragments (nav, footer, copyright) are defined globally by their files in `content/_global` directory. If you want you can open `themes/syna/exampleSite` to check out our main website in depth.
+Now you can open [http://localhost:1313](http://localhost:1313) and check out the sample website we just cloned. Take your time and check out the folder structure and browse the website. There are two pages being created based on the starter repository, an index/main page and an about page. Each one has some fragments already being displayed. You'll notice some fragments are the same in both pages. These fragments (nav, footer, copyright) are defined globally and are shared by all pages, if not overwritten. These global fragments are defined within the `content/_global` directory.
 
-In order to create our blog, we need to clean up the sample project we just cloned and create the base files.
-
-```bash
-mkdir content/blog # our blog section
-touch content/blog/_index.md # blog's main page
-```
-
-The `blog/_index.md` file is a "list" page in Hugo. If you're unfamiliar with how Hugo manages content please check out the [quick start](https://gohugo.io/getting-started/quick-start/) page of their documentation. A list page is configured by the `_index` directory in the same directory as the `_index.md` file. We will configure this page later on. Let's create our first blog post.
+In order to create our blog we need to add a blog directory for our section as well a few files:
 
 ```bash
-mkdir content/blog/hello-world
-touch content/blog/hello-world/index.md
-touch content/blog/hello-world/content.md
+mkdir content/blog # our new blog section
+touch content/blog/_index.md # our blog's skeleton index/main page used for setting the title and description
 ```
 
-You can create pages directly in the blog directory but that would prevent us from configuring the page's fragments. So we create a directory for each post and adding a [`content` fragment](https://about.okkur.org/syna/fragments/content/) for each one. `content` fragment is responsible for showing content in an article format. Add the following to the `content.md` file:
+The `blog/_index.md` declares the whole directory a section with child pages to Hugo. For more details on how Hugo manages content please check out the [quick start](https://gohugo.io/getting-started/quick-start/) page of their documentation.
 
-```markdown
+Let's first create our first blog post:
+
+```bash
+mkdir content/blog/hello-world # directory for our new blogpost will be served as a single page
+touch content/blog/hello-world/index.md # declaring the title and date of the whole page
+touch content/blog/hello-world/content.md # our content as a content fragment
+```
+
+We create a directory for each post and add a [`content` fragment](https://about.okkur.org/syna/fragments/content/) for each one. The `content` fragment is responsible for showing the content in an article format.
+You can create pages directly in the blog directory without the additional subdirectory, but that would prevent us from configuring additional page fragments.
+
+To define the content add the following to the `content/blog/hello-world/content.md` file:
+
+```
 +++
 fragment = "content"
 weight = 100
@@ -55,11 +60,11 @@ weight = 100
 Hello world! This is my first blog post.
 ```
 
-Hugo's content files are markdown files with [FrontMatter](https://gohugo.io/content-management/front-matter/) supporrt. FrontMatter (the part on top between the two `+++`) is used to configure the content and the markdown that comes after is usually the content that is shown on the page. In most of our built-in fragments we only use the FrontMatter configuration and only use markdown for content in the `content` fragment and related functionality.
+Hugo's content files are markdown files with [FrontMatter](https://gohugo.io/content-management/front-matter/) support. FrontMatter (the part on top between the two `+++`) is used to configure the fragment. The text, usually in markdown format, that comes after will be the content that is shown on the page. Most of our built-in fragments only use the FrontMatter configuration.
 
-The code above will create our `content` fragment, sorting it by it's weight among other pages and global fragments and display the content that is written after the FrontMatter. You can read more about what each variable does and how each fragment works in [Syna's official documentation](https://about.okkur.org/syna/docs/).
+The code will create our `content` fragment, sorting it by its weight among other pages and global fragments and display the content that is written after the FrontMatter. You can read more about each variable and how each fragment works in [Syna's official documentation](https://about.okkur.org/syna/docs/).
 
-Now that we have our first blog post, we need to make Hugo recognize it as a page. So we're gonna fill in `content/blog/hello-world/index.md` file we previously created:
+Now that we have our first blog post content, we can let Hugo recognize it as a page. We're gonna fill the `content/blog/hello-world/index.md` file we previously created with the title and a date for the page and declare the directory to be a single page due to being named `index.md`:
 
 ```markdown
 +++
@@ -68,14 +73,17 @@ date = "2019-11-01"
 +++
 ```
 
-Now if you start the development server (`hugo server -D`) and visit [https://localhost:1313/blog/hello-world](https://localhost:1313/blog/hello-world) you can see the blog post. You can add more [fragments](https://about.okkur.org/syna/fragments/) to the page to customize how it looks and functions. But there isn't yet any way to view the archive of the blog and there isn't any way to access this page without the url. We need to add the list of the blog pages in the blog "list" page located at [https://localhost:1313/blog](https://localhost:1313/blog). In order to do so, create a new directory in `content/blog` by running the following commands:
+Now if you start the development server (`hugo server -D`) and visit [https://localhost:1313/blog/hello-world](https://localhost:1313/blog/hello-world) directly you can see our first blog post. You can add more [fragments](https://about.okkur.org/syna/fragments/) to the page to customize how it looks and functions.
+
+Currently we haven't yet configured any way to show a list of all posts. For this we can create a `list` page.
+In order to do so, we create a new directory in `content/blog` by running the following commands:
 
 ```bash
 mkdir content/blog/_index
-mkdir content/blog/_index/index.md
+touch content/blog/_index/index.md
 ```
 
-Hugo recognizes each directory with `index.md` or `_index.md` inside it as a page, but since we're gonna use this directory as configuration center for our list page and not to create a different page, we need to force Hugo to not create a page for it. Add the following to `content/blog/_index/index.md`:
+Syna has two special use directories so called headless pages. We use the `_index` and `_global` directory to configure a sections main/index page or add global fragments. To make this function correctly we need to tell Hugo to not create a page, but instead declare them as a headless directory. This can be done by adding the following to `content/blog/_index/index.md`:
 
 ```markdown
 +++
@@ -83,21 +91,23 @@ headless = true
 +++
 ```
 
-## Display an archive of the blog
-Now every file in this directory will be displayed in the list page of our blog section. We can add a [`list` fragment](https://about.okkur.org/syna/fragments/list/) to display the latest posts. Create a `list.md` file inside our `_index` directory and add the following to it:
+Now we are going to add a [`list` fragment](https://about.okkur.org/syna/fragments/list/) to our blog section page. Currently it is an empty page with our global fragments showing, but no posts listed.
+Create a `list.md` file inside our `content/blog/_index` directory and add the following:
 
 ```markdown
 +++
-fragment = "list"
+fragment = "list" # declare list fragment
 weight = 100
 
-section = "blog"
+section = "blog" # section to pull the list of pages
 ```
 
-Now go ahead and visit [https://localhost:1313/blog](https://localhost:1313/blog). You can also duplicate this file and move it to `content/_index` to display latest blog posts in your home page.
+Now go ahead and visit [https://localhost:1313/blog](https://localhost:1313/blog). You can also duplicate this file and move it to `content/_index` to display latest blog posts in your home page as well.
 
-## Deploy
 
-You can easily deploy a Syna website on Netlify. Just create a reposity on Github or Gitlab and connect it to your Netlify account.
+You can easily deploy a Syna website on Netlify. Create a reposity on Github or Gitlab and connect it to your Netlify account.
+For more options on how to deploy a site take a look at the (Hugo documentation](https://gohugo.io/hosting-and-deployment/).
 
-We will discuss adding more info to your pages in later posts.
+Let us know what you build on [Twitter](https://twitter.com/okkurlabs) or give feedback and contribute on [Github](https://syna.okkur.org/code).
+
+Happy building from the Okkur Team
