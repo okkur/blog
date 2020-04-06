@@ -14,7 +14,7 @@ display_date = true
 +++
 
 Okkur Labs is launching with a vision towards a sustainable open source future.
-Creating the building blocks for our vision of Okkur Labs with a fully remote team of passionate invidiuals.
+Creating the building blocks for our vision of Okkur Labs with a fully remote team of passionate individuals.
 Working our way through both established as well as our own projects step by step.
 From idea to implementation to a hopefully thriving community of maintainers, contributors, users and commercial interests.
 
