@@ -74,7 +74,7 @@ DefaultContentLanguage = "en"
   weight = 50
 
 [[menu.copyright_footer]]
-  url = "/projects/"
+  url = "https://about.okkur.org/projects/"
   name = "Further projects"
   weight = 10
 
