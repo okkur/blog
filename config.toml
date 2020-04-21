@@ -49,34 +49,29 @@ DefaultContentLanguage = "en"
 # Keep an eye out for updates. These will be moved out to make navbar more
 # configurable.
 [[menu.main]]
-  url = "https://about.okkur.org/"
-  name = "Home"
-  weight = 10
-
-[[menu.main]]
   url = "https://about.okkur.org/syna/"
   name = "Syna"
-  weight = 20
+  weight = 10
 
 [[menu.main]]
   url = "https://about.okkur.org/#txtdirect"
   name = "TXTDirect"
-  weight = 30
+  weight = 20
 
 [[menu.main]]
   url = "https://about.okkur.org/#resumic"
   name = "Resumic"
-  weight = 40
+  weight = 30
 
 [[menu.main]]
   url = "https://about.okkur.org/sustain/"
   name = "Sponser & Sustain"
-  weight = 50
+  weight = 40
 
 [[menu.main]]
-  url = "https://blog.okkur.org"
-  name = "Blog"
-  weight = 60
+  url = "https://about.okkur.org"
+  name = "Home"
+  weight = 50
 
 [[menu.copyright_footer]]
   url = "/projects/"
