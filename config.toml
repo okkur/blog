@@ -73,6 +73,11 @@ DefaultContentLanguage = "en"
   name = "Sponser & Sustain"
   weight = 50
 
+[[menu.main]]
+  url = "https://blog.okkur.org"
+  name = "Blog"
+  weight = 60
+
 [[menu.copyright_footer]]
   url = "/projects/"
   name = "Further projects"
